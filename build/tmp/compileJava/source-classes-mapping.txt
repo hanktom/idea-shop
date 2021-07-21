@@ -1,0 +1,4 @@
+com/tom/Product.java
+ com.tom.Product
+com/tom/Tester.java
+ com.tom.Tester
