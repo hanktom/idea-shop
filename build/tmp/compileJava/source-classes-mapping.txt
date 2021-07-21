@@ -1,3 +1,5 @@
+com/tom/Student.java
+ com.tom.Student
 com/tom/Product.java
  com.tom.Product
 com/tom/Tester.java

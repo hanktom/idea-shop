@@ -6,13 +6,9 @@ public class Tester {
         //商品: id, 名, price
         //System.out.println("Hello world!");
         int n = 10;
-        Product toothbrush = new Product();
-        toothbrush.id = 1;
-        toothbrush.name = "牙刷";
-        toothbrush.price = 150;
-        Product mouse = new Product();
-        mouse.id = 2;
-        mouse.name = "滑鼠";
-        mouse.price = 99;
+        Product toothbrush =
+                new Product(1, "牙刷", 150); //call constructor
+        toothbrush.publish();
+        Product mouse = new Product("滑鼠", 99);
     }
 }
