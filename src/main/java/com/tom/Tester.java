@@ -1,14 +1,20 @@
 package com.tom;
 
+import java.util.List;
+
 public class Tester {
     public static void main(String[] args) {
         //購物
         //商品: id, 名, price
-        //System.out.println("Hello world!");
+        List<Category> categories = Category.getDummyCategories();
+        for (Category cat : categories) {
+            System.out.println(cat.name);
+        }
         int n = 10;
         Product toothbrush =
-                new Product(1, "牙刷", 150); //call constructor
+                new Product("牙刷", categories.get(0)); //call constructor
         toothbrush.publish();
-        Product mouse = new Product("滑鼠", 99);
+        Product mouse = new Product("滑鼠", categories.get(1));
+        mouse.publish();
     }
 }
