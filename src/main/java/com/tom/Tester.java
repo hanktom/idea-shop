@@ -10,11 +10,16 @@ public class Tester {
         for (Category cat : categories) {
             System.out.println(cat.name);
         }
-        int n = 10;
         Product toothbrush =
-                new Product("牙刷", categories.get(0)); //call constructor
+                new Product("牙刷", Category.CATEGORY_LIFE); //call constructor
+//                new Product("牙刷", categories.get(0)); //call constructor
         toothbrush.publish();
-        Product mouse = new Product("滑鼠", categories.get(1));
+        Product mouse = new Product("滑鼠", Category.CATEGORY_COMPUTER);
         mouse.publish();
+        System.out.println(mouse.id);
+        //Order
+        OrderItem item = new OrderItem(mouse, 3);
+        OrderItem item2 = new OrderItem(toothbrush);
+
     }
 }
