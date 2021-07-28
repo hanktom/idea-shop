@@ -37,7 +37,7 @@ public class Product {
     public static List<Product> getProductsFromFile() {
         List<Category> categories = Category.getDummyCategories();
         //Polymorphism 多型
-        List<Product> products = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("data.txt");
             BufferedReader in = new BufferedReader(fileReader);
