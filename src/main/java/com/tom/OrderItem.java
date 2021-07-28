@@ -15,6 +15,9 @@ public class OrderItem extends Product {
 
     //TODO: 作業
     public OrderItem(Product product) {
-        this.id = 0;
+        this.id = product.id;
+        this.name = product.name;
+        this.price = product.price;
+        qty = 1;
     }
 }

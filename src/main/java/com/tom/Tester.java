@@ -10,16 +10,13 @@ public class Tester {
         for (Category cat : categories) {
             System.out.println(cat.name);
         }
-        Product toothbrush =
-                new Product("牙刷", Category.CATEGORY_LIFE); //call constructor
-//                new Product("牙刷", categories.get(0)); //call constructor
-        toothbrush.publish();
-        Product mouse = new Product("滑鼠", Category.CATEGORY_COMPUTER);
-        mouse.publish();
-        System.out.println(mouse.id);
+        List<Product> products = Product.getProductsFromFile();
+        for (Product product : products) {
+            System.out.println(product.name + "*");
+        }
         //Order
-        OrderItem item = new OrderItem(mouse, 3);
-        OrderItem item2 = new OrderItem(toothbrush);
+//        OrderItem item = new OrderItem(mouse, 3);
+//        OrderItem item2 = new OrderItem(toothbrush);
 
     }
 }
