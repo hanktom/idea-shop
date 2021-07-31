@@ -12,7 +12,7 @@ public class Tester {
         }
         List<Product> products = Product.getProductsFromFile();
         for (Product product : products) {
-            System.out.println(product.name + "*");
+            System.out.println(product);
         }
         //Order
 //        OrderItem item = new OrderItem(mouse, 3);

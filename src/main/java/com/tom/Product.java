@@ -45,11 +45,21 @@ public class Product {
             while(line != null) {
                 System.out.println(line);
                 String[] tokens = line.split(",");
-                Product product = new Product(
-                        Integer.parseInt(tokens[0]),
-                        categories.get(Integer.parseInt(tokens[1])-1),
-                        tokens[2],
-                        Integer.parseInt(tokens[3]));
+                //collect data for Product
+                int id = Integer.parseInt(tokens[0]);
+                Category category = categories.get(Integer.parseInt(tokens[1])-1);
+                String name = tokens[2];
+                int price = Integer.parseInt(tokens[3]);
+                //Product object
+                Product product;
+                if (tokens.length > 4) {
+                    float discount = Float.parseFloat(tokens[4]);
+                    product = new SalesProduct(id, category, name, price,
+                            discount);
+                } else {
+                    product = new Product(id, category, name, price);
+                }
+                //add to products list
                 products.add(product);
                 line = in.readLine();
             }
@@ -64,5 +74,14 @@ public class Product {
     //方法 method
     void publish() { //成員, Member, 可加修飾字 Modifier
 
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return id + "\t" + name + "\t" + getPrice();
     }
 }
