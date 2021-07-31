@@ -10,6 +10,8 @@ public class Product {
     String name;  //成員, Member
     int price = 1;  //成員, Member
     Category category;
+    float discount = 1.0f;
+
     //Constructor
     public Product() { //default constructor
         super();
@@ -50,6 +52,9 @@ public class Product {
                         categories.get(Integer.parseInt(tokens[1])-1),
                         tokens[2],
                         Integer.parseInt(tokens[3]));
+                if (tokens.length > 4) {
+                    product.discount = Float.parseFloat(tokens[4]);
+                }
                 products.add(product);
                 line = in.readLine();
             }
@@ -64,5 +69,28 @@ public class Product {
     //方法 method
     void publish() { //成員, Member, 可加修飾字 Modifier
 
+    }
+
+    public boolean isOnSale() {
+        if (discount < 1.0f) {
+            return true;
+        } else return false;
+    }
+
+    public int getPrice() {
+        if (discount < 1.0f) {
+            return (int) (price*discount);
+        } else return price;
+    }
+
+    // @ => Annotation 標示
+    @Override
+    public String toString() {
+        /*if (discount < 1.0f) {
+            return id + "\t" + name + "\t" + (int)(price*discount);
+        } else {
+            return id + "\t" + name + "\t" + price;
+        }*/
+        return id + "\t" + name + "\t" + getPrice();
     }
 }
