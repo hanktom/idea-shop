@@ -12,6 +12,9 @@ public class Tester {
         }
         List<Product> products = Product.getProductsFromFile();
         for (Product product : products) {
+            if (product instanceof SalesProduct) {
+                System.out.print("*");
+            }
             System.out.println(product);
         }
         //Order
