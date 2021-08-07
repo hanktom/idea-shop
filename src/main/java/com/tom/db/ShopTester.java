@@ -1,8 +1,6 @@
 package com.tom.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ShopTester {
     public static void main(String[] args) {
@@ -13,7 +11,20 @@ public class ShopTester {
             //2. 連線資料庫, URL String
             Connection connection =
                     DriverManager.getConnection(
-                            "jdbc:mariadb://localhost:3306/shop?user=root&password=abc123");
+                            "jdbc:mariadb://localhost:3306/shop", "jack", "abc333");
+            Statement stmt = connection.createStatement();
+            ResultSet resultSet = stmt.executeQuery("select * from category");
+            while(resultSet.next()) {
+                int id = resultSet.getInt(1);
+                System.out.println(id);
+                String name = resultSet.getString(2);
+                System.out.println(name);
+                int version = resultSet.getInt("version");
+                System.out.println(version);
+            }
+            resultSet.close();
+            stmt.close();
+            connection.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {

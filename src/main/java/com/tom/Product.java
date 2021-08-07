@@ -35,7 +35,7 @@ public class Product {
     }
     //Encapsulation 封裝
     public static List<Product> getProductsFromFile() {
-        List<Category> categories = Category.getDummyCategories();
+        List<Category> categories = Category.getCategories();
         //Polymorphism 多型
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -47,6 +47,7 @@ public class Product {
                 String[] tokens = line.split(",");
                 //collect data for Product
                 int id = Integer.parseInt(tokens[0]);
+                //TODO: possible bug for index
                 Category category = categories.get(Integer.parseInt(tokens[1])-1);
                 String name = tokens[2];
                 int price = Integer.parseInt(tokens[3]);

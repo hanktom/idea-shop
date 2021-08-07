@@ -1,5 +1,6 @@
 package com.tom;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,32 @@ public class Category {
 
     public static List<Category> getCategories() {
         List<Category> list = new ArrayList<>();
-        //TODO: read categories from database
+        try {
+            //1. JDBC Driver
+            Class.forName("org.mariadb.jdbc.Driver");
+            //2. 連線資料庫, URL String
+            Connection connection =
+                    DriverManager.getConnection(
+                            "jdbc:mariadb://localhost:3306/shop", "jack", "abc333");
+            Statement stmt = connection.createStatement();
+            ResultSet resultSet = stmt.executeQuery("select * from category");
+            while(resultSet.next()) {
+                int id = resultSet.getInt(1);
+                System.out.println(id);
+                String name = resultSet.getString(2);
+                System.out.println(name);
+                int version = resultSet.getInt("version");
+                System.out.println(version);
+                list.add(new Category(id, name));
+            }
+            resultSet.close();
+            stmt.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return list;
     }
 }
