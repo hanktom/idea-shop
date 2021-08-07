@@ -16,6 +16,7 @@ public class Box {
     }
     public boolean validate(int length, int width, int height) {
         //TODO: bug free
+        //List sorting
         return length<=this.length && width <= this.width && height <= this.height;
     }
 }
