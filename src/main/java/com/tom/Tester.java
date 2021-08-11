@@ -8,6 +8,8 @@ public class Tester {
         //商品: id, 名, price
 //        List<Category> categories = Category.getDummyCategories();
         List<Product> products = Product.getProductsFromFile();
+        //耗時5秒
+
         for (Product product : products) {
             if (product instanceof SalesProduct) {
                 System.out.print("*");
