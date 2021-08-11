@@ -15,13 +15,14 @@ public class MainFrame extends JFrame {
         panel.add(cancel);
         add(panel);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        //Lambda
         ok.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 System.out.println("Hello?");
             }
         });
-        cancel.addActionListener(new ByeActionListener());
+        cancel.addActionListener((event)-> System.out.println("Bye!"));
         setVisible(true);
     }
 

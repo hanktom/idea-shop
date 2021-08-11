@@ -2,9 +2,10 @@ package com.tom.thread;
 
 public class Tester {
     public static void main(String[] args) {
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
+        //Lambda
+        new Thread(()-> System.out.println("Run!"))
+                .start();
+        new Thread(() -> {
                 for (int i = 0; i < 20; i++) {
                     System.out.println(" Running..." + i);
                     try {
@@ -13,10 +14,7 @@ public class Tester {
                         e.printStackTrace();
                     }
                 }
-            }
-        };
-        Thread thr = new Thread(runnable);
-        thr.start();
+        }).start();
         //
         Thread thread = new Thread() {
             @Override
